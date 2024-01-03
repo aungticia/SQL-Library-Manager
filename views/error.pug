@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 #{title}
+  p= message
+  br
+  p
+    a.button(href='/') Home
+  pre #{error.stack}
