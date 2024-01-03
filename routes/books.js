@@ -93,7 +93,7 @@ router.post('/new', asyncHandler(async (req, res, next) => {
 }));
 
 // GET books/:id shows update-book form
-router.get('/update/:id', asyncHandler(async (req, res, next) => {
+router.get('/:id/update', asyncHandler(async (req, res, next) => {
   const book = await Book.findByPk(req.params.id);
   if (book) {
     res.render('update-book', { book })
@@ -103,7 +103,7 @@ router.get('/update/:id', asyncHandler(async (req, res, next) => {
 }));
 
 // POST books/:id Updates book info in the database
-router.post('/update/:id', asyncHandler(async (req, res, next) => {
+router.post('/:id/update', asyncHandler(async (req, res, next) => {
   let book;
   try {
     book = await Book.findByPk(req.params.id);
@@ -125,7 +125,7 @@ router.post('/update/:id', asyncHandler(async (req, res, next) => {
 }));
 
 // Delete book form. 
-router.get("/delete/:id", asyncHandler(async (req, res) => {
+router.get("/:id/delete", asyncHandler(async (req, res) => {
   const book = await Book.findByPk(req.params.id);
   if(book) {
     res.render("delete", { book });
@@ -135,7 +135,7 @@ router.get("/delete/:id", asyncHandler(async (req, res) => {
 }));
 
 // Delete individual book
-router.post('/delete/:id', asyncHandler(async (req ,res) => {
+router.post('/:id/delete', asyncHandler(async (req ,res) => {
   const book = await Book.findByPk(req.params.id);
   if(book) {
     await book.destroy();

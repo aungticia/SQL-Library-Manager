@@ -5,7 +5,7 @@ block content
 
   include validation-error
 
-  form(action=`/books/update/${book.id}`, method="post")
+  form(action=`/books/${book.id}/update`, method="post")
     p
       label(for='title') Title
       input#title(name='title' type='text' value=book.title)
@@ -23,4 +23,4 @@ block content
     p
       a.button(href='/books') Cancel
     p
-      a.button(href=`/books/delete/${book.id}`) Delete
+      a.button(href=`/books/${book.id}/delete`) Delete
